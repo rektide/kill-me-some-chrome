@@ -1,7 +1,7 @@
 #!/bin/sh
 while true;
 do
-	CHROMES=$(ps -aef|grep chrome.*renderer|grep -v grep|grep "^$USER"|awk '{print $2}')
+	CHROMES=$(ps -aef|grep chrome.*renderer|grep -v grep|grep "^$USER"|grep -v "extension-process"|awk '{print $2}')
 	echo $CHROMES
 	[ -n "$CHROMES" ] && kill -9 $CHROMES
 	sleep 1
